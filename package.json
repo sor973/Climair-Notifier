@@ -12,7 +12,9 @@
     "air-thai-api": "^1.0.1",
     "next": "12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "weather": "^1.0.4",
+    "weather-js": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
