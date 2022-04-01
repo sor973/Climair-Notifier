@@ -1,16 +1,6 @@
-const { AirThai } = require("air-thai-api")
 var weather = require('weather-js');
 const resultObject = {}
 
-async function  getAq(){
-    const rawData = await AirThai({ lat: 13.670809600000002, long: 100.6501888 })
-    const data = {
-        'pm25': rawData['AQILast']['PM25']['value'],
-        'pm10': rawData['AQILast']['PM10']['value'],
-        'aqi': rawData['AQILast']['AQI']['aqi']
-    }
-    return data
-}
 
 function dataProcessing(err, result){
     if(err) return {}
@@ -31,14 +21,8 @@ function dataProcessing(err, result){
     resultObject.data = data
 }
 
-function getTemp(){
+export default function getTemp(req, res){
     weather.find({search: 'Bankok, Thailand', degreeType: 'C'}, dataProcessing)
-    return resultObject.data
-}
-
-export default async function handler(req, res){
-    // const data = await getAq()
-    const data = getTemp();
-
-    res.json(data)
+    console.log(resultObject.data);
+    res.status(200).json(resultObject.data)
 }
