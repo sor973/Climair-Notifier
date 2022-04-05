@@ -18,10 +18,17 @@ function dataProcessing(err, result){
         },
         'forecast': rawData['forecast']
     }
+    console.log(data);
     resultObject.data = data
 }
 
-export default function getTemp(req, res){
+export async function getTemp(){
+    weather.find({search: 'Bankok, Thailand', degreeType: 'C'}, dataProcessing)
+    while (!(resultObject.data)){await new Promise(r => setTimeout(r, 1000));}
+    return resultObject.data
+}
+
+export default function getTempRout(req, res){
     weather.find({search: 'Bankok, Thailand', degreeType: 'C'}, dataProcessing)
     console.log(resultObject.data);
     res.status(200).json(resultObject.data)
