@@ -3,7 +3,8 @@ import HeaderStats from '../components/HeaderStats'
 import CardBarChart from '../components/CardBarChart';
 import CardLineChart from '../components/CardLineChart';
 import Dropdownf from '../components/Dropdown';
-import Navbar from '../components/Navbar';
+import Navbardashboard from '../components/Navbardashboard';
+
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -47,7 +48,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbardashboard/>
       <div className="relative md:pt-5 pb-20 pb-5 ">
         <div className="px-4 md:px-10 mx-auto w-full space-y-5">
           <div className='flex justify-between px-4'>

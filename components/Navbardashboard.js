@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import { Dropdown } from 'react-bootstrap';
 
 import React from "react";
 
-export default function Navbar({ fixed }) {
+export default function Navbardashboard({ fixed }) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     return (
         <>
-            <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-sky-500 mb-3">
-                <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+            <nav className="relative flex  justify-between px-2 py-1 bg-sky-500 mb-3">
+                <div className="container px-2  flex justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <h2
                             className="font-bold text-xl leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white"
@@ -31,24 +32,15 @@ export default function Navbar({ fixed }) {
                         }
                         id="example-navbar-danger"
                     >
-                        <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-                            <li className="nav-item">
-                                <a
-                                    className="px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
-                                    href="/signin"
-                                >
-                                    <i className=" text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Sign in</span>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a
-                                    className="px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
-                                    href="signup"
-                                >
-                                    <i className=" text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Sign up</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <Dropdown className="flex flex-col lg:flex-row list-none lg:ml-auto">
+                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                Setting
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="#">Connect</Dropdown.Item>
+                                <Dropdown.Item href="#">Sign out</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </div>
                 </div>
             </nav>
