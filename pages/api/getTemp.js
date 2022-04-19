@@ -43,8 +43,8 @@ export async function getTempHook(location){
 }
 
 export default async function getTemp(req, res){
-    await weather.find({search: req.body.ubon.locate, degreeType: 'C'}, dataProcessing)
-    await getAq(req.body.ubon.cord)
+    await weather.find({search: req.body.locate, degreeType: 'C'}, dataProcessing)
+    await getAq(req.body.cord)
     result.data =   Object.assign(resultObject.data, resultObject2.data);
    
     res.status(200).json(result.data)

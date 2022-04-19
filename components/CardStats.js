@@ -36,7 +36,7 @@ export default function CardStats({
               </div>
             </div>
           </div>
-          {statdes !== "disable" ?
+          {/* {statdes !== "disable" ?
             (<p className="text-sm mt-4">
               <span className={statPercentColor + " mr-2"}>
                 <i
@@ -60,7 +60,7 @@ export default function CardStats({
               <span className="whitespace-nowrap ">{statDescripiron}</span>
             </p>
             )
-          }
+          } */}
         </div>
       </div>
     </>

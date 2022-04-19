@@ -91,7 +91,7 @@ export default function CardLineChart({
               //   fontColor: "rgba(255,255,255,.7)",
               // },
               display: true,
-              scaleLabel: {
+              scaleLabel: { 
                 display: false,
                 labelString: "Value",
                 fontColor: "black",
@@ -131,9 +131,9 @@ export default function CardLineChart({
             </div>
           </div>
         </div>
-        <div className="p-4 flex-auto">
+        <div className="p-3 flex-auto">
           {/* Chart */}
-          <div className="relative h-350-px">
+          <div className="relative py-3">
             <canvas id="line-chart"></canvas>
           </div>
         </div>
