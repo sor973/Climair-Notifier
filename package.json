@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev && node ./server/alarm.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
+    "@line/bot-sdk": "^7.5.0",
     "air-thai-api": "^1.0.1",
     "chart.js": "2.9.4",
     "flowbite": "^1.4.2",
     "font-awesome": "^4.7.0",
+    "mongodb": "^4.5.0",
     "next": "12.1.4",
+    "node-cron": "^3.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "swr": "^1.2.2",
