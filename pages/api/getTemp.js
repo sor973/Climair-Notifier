@@ -1,6 +1,9 @@
 var weather = require('weather-js');
-const resultObject = {}
+const { AirThai } = require("air-thai-api")
 
+const resultObject = {}
+const resultObject2 = {}
+const result = {}
 
 function dataProcessing(err, result){
     if(err) return {}
@@ -22,14 +25,19 @@ function dataProcessing(err, result){
     resultObject.data = data
 }
 
-export async function getTemp(){
-    weather.find({search: 'Bankok, Thailand', degreeType: 'C'}, dataProcessing)
-    while (!(resultObject.data)){await new Promise(r => setTimeout(r, 1000));}
-    return resultObject.data
+async function getAq(cord){
+    const rawData = await AirThai(cord)
+    const airdata = {
+        'pm25': rawData['AQILast']['PM25']['value'],
+        'pm10': rawData['AQILast']['PM10']['value'],
+        'aqi': rawData['AQILast']['AQI']['aqi']
+    }
+    resultObject2.data = airdata
 }
-
-export default function getTempRout(req, res){
-    weather.find({search: 'Bankok, Thailand', degreeType: 'C'}, dataProcessing)
-    console.log(resultObject.data);
-    res.status(200).json(resultObject.data)
+export default async function getTemp(req, res){
+    await weather.find({search: req.body.ubon.locate, degreeType: 'C'}, dataProcessing)
+    await getAq(req.body.ubon.cord)
+    result.data =   Object.assign(resultObject.data, resultObject2.data);
+   
+    res.status(200).json(result.data)
 }
