@@ -21,7 +21,6 @@ function dataProcessing(err, result){
         },
         'forecast': rawData['forecast']
     }
-    console.log(data);
     resultObject.data = data
 }
 
@@ -34,6 +33,15 @@ async function getAq(cord){
     }
     resultObject2.data = airdata
 }
+
+export async function getTempHook(location){
+    weather.find({search: location.locate, degreeType: 'C'}, dataProcessing)
+    while (!(resultObject.data)){await new Promise(r => setTimeout(r, 1000));}
+    await getAq(location.cord)
+    result.data =   Object.assign(resultObject.data, resultObject2.data);
+    return result.data
+}
+
 export default async function getTemp(req, res){
     await weather.find({search: req.body.ubon.locate, degreeType: 'C'}, dataProcessing)
     await getAq(req.body.ubon.cord)

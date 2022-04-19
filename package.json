@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev && node ./server/alarm.js",
+    "dev": "concurrently \"npm run next\" \"npm run alarm\"",
+    "next": "next dev",
+    "alarm": "node ./server/alarm",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +15,7 @@
     "@line/bot-sdk": "^7.5.0",
     "air-thai-api": "^1.0.1",
     "chart.js": "2.9.4",
+    "concurrently": "^7.1.0",
     "flowbite": "^1.4.2",
     "font-awesome": "^4.7.0",
     "mongodb": "^4.5.0",
