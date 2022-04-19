@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import HeaderStats from '../components/HeaderStats'
 import CardBarChart from '../components/CardBarChart';
 import CardLineChart from '../components/CardLineChart';
+import Dropdownf from '../components/Dropdown';
+import Navbar from '../components/Navbar';
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
@@ -16,12 +18,7 @@ export default function Home() {
   const [fore3, setFore3] = useState({});
   const [fore4, setFore4] = useState({});
 
-  const location = {
-    ubon: {
-      locate: 'Ubonratchatani, Thailand',
-      cord: { lat: 15.23844, long: 104.84866 }
-    }
-  }
+  const [lo, setLo] = useState({ locate: 'Bangkok, Thailand', cord: { lat: 13.736717, long: 100.523186 } });
 
   useEffect(() => {
     const getdata = async (e) => {
@@ -31,11 +28,11 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(location),
+        body: JSON.stringify(lo),
       });
 
       const data = await response.json();
-      
+
       setAqi(data.aqi)
       setToday(data.current)
 
@@ -46,14 +43,19 @@ export default function Home() {
       setFore4(data.forecast[4])
     };
     getdata()
-  }, [])
+  }, [lo])
 
   return (
-
     <div>
-      <div className="relative md:pt-20 pb-20 pb-5">
+      <Navbar/>
+      <div className="relative md:pt-5 pb-20 pb-5 ">
         <div className="px-4 md:px-10 mx-auto w-full space-y-5">
-          <h1 className="text-black text-3xl font-semibold">{today.day}, {today.date}</h1>
+          <div className='flex justify-between px-4'>
+            <h1 className="text-black text-3xl font-semibold ">{today.day}, {today.date}</h1>
+            <Dropdownf
+              setLo={setLo}
+            />
+          </div>
           <HeaderStats
             today={today}
             aqi={aqi}
@@ -82,7 +84,7 @@ export default function Home() {
           location
         </h1>
         <h1 className="text-7xl">
-          {location.ubon.locate}
+          {lo.locate}
         </h1>
       </div>
     </div>
