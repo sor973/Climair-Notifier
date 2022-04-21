@@ -14,7 +14,7 @@ export default function Dropdownf({setLo}) {
             <Dropdown        
 >
                 <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                    Dropdown Button
+                    Location
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu

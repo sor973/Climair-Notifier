@@ -37,7 +37,8 @@ export default function Navbardashboard({ fixed }) {
                                 Setting
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#">Connect</Dropdown.Item>
+                            <Dropdown.Item href="/account">Account</Dropdown.Item>
+                                <Dropdown.Item href="/connect">Connect</Dropdown.Item>
                                 <Dropdown.Item href="#">Sign out</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

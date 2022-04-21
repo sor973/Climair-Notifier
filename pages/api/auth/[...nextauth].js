@@ -47,7 +47,7 @@ export default NextAuth({
         }
         //Else send success response
         client.close();
-        return { email: users.email };
+        return { email: users};
       },
     }),
   ],
