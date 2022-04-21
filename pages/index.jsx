@@ -12,7 +12,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function Home() {
   const router = useRouter();
   const { data: session, status } = useSession();
-  // console.log(session)
+
   const [aqi, setAqi] = useState('');
   const [today, setToday] = useState('');
   const [fore0, setFore0] = useState({});
@@ -21,6 +21,7 @@ export default function Home() {
   const [fore3, setFore3] = useState({});
   const [fore4, setFore4] = useState({});
   const [lo, setLo] = useState({ locate: 'Bangkok, Thailand', cord: { lat: 13.736717, long: 100.523186 } });
+
   useEffect(() => {
     if (!session) {router.push("/signin")}
     else{
@@ -48,17 +49,17 @@ export default function Home() {
       getdata()
     }
   }, [lo])
+
   if (!session) {
     return (
       <div></div>
     )
   }
   return (
-
     <div>
       <Navbardashboard />
-      <div className="relative md:pt-5 pb-20 pb-5 ">
-        <div className="px-4 md:px-10 mx-auto w-full space-y-5">
+      <div className="relative mld:pt-5 pb-20 pb-5 ">
+        <div cassName="px-4 md:px-10 mx-auto w-full space-y-5">
           <div className='flex justify-between px-4'>
             <h1 className="text-black text-3xl font-semibold ">{today.day}, {today.date}</h1>
             <Dropdownf
@@ -71,7 +72,6 @@ export default function Home() {
           />
         </div>
       </div>
-
       <div className="flex flex-wrap px-4 md:px-10 mx-auto w-full ">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-1 px-3">
           <CardLineChart

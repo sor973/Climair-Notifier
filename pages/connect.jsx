@@ -1,21 +1,30 @@
-import Navbat from '../components/Navbat'
-
+import Navbardashboard from "../components/Navbardashboard";
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useSession, } from "next-auth/react";
 
 export default function connect() {
+    const { data: session, status } = useSession();
+    const router = useRouter()
 
+    useEffect(() => {
+        if (!session) { }
+    }, [])
 
+    if (!session) {
+        return (
+            <div></div>
+        )
+    }
     return (
         <div>
-            <Navbat />
-            <div className='flex items-center justify-center bg-gray-200 min-h-screen font-mono  '>
-
-                <div className='px-3 max-w-lg mx-auto bg-white rounded-lg shadow-xl'>
+            <Navbardashboard />
+            <div className='relative flex items-center justify-center bg-gray-200 font-mono  '>
+                <div className='px-3  bg-white rounded-lg shadow-xl'>
                     <div>
                         <div className="text-center" >
                             <span className="border-4 border-white rounded-full mx-auto inline-block">
-                       
-                                <img className=" w-200 h-200" src={`/L_gainfriends_qr.jpg` } /> 
-
+                                <img className=" w-200 h-200" src={`/L_gainfriends_qr.jpg`} />
                             </span>
                         </div>
                         <p className="text-center mb-5"><span className="font-bold text-2xl">Weather Forecast Bot</span></p>
