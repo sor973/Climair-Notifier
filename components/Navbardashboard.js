@@ -37,9 +37,9 @@ export default function Navbardashboard({ fixed }) {
                                 Setting
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                            <Dropdown.Item href="/account">Account</Dropdown.Item>
+                                <Dropdown.Item href="/account">Account</Dropdown.Item>
                                 <Dropdown.Item href="/connect">Connect</Dropdown.Item>
-                                <Dropdown.Item href="#">Sign out</Dropdown.Item>
+                                <Dropdown.Item ><Link href="/api/auth/signout"><a className='no-underline text-black-500' onClick={(e) => {e.preventDefault(); signOut({callbackUrl: "/signin"});}}> Sign out</a></Link></Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>

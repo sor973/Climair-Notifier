@@ -55,7 +55,7 @@ export default function register() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email or username"
+              placeholder="Email"
               className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
             />
           </div>
