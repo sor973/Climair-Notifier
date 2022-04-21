@@ -36,7 +36,7 @@ export default function Navbar({ fixed }) {
                             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                                 <li className="nav-item">
                                     <a
-                                        className="px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
+                                        className="no-underline px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
                                         href="/signin"
                                     >
                                         <i className=" text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Sign in</span>
@@ -44,7 +44,7 @@ export default function Navbar({ fixed }) {
                                 </li>
                                 <li className="nav-item">
                                     <a
-                                        className="px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
+                                        className="no-underline px-3 py-2 flex items-center text-ml leading-snug text-white hover:opacity-75"
                                         href="signup"
                                     >
                                         <i className=" text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Sign up</span>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { useSession, } from "next-auth/react";
 import Navbardashboard from "../components/Navbardashboard";
+import { getSession } from "next-auth/react";
 
 export default function account() {
     const { data: session, status } =  useSession();
@@ -34,16 +35,24 @@ export default function account() {
 
     };
     
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-    
-      if(!session){router.push('/signin')}
-    
-    }, [])
-    
+      getSession().then((session) => {
+        if (!session) router.replace("/signin");
+        else setLoading(false);
+      });
+    }, []);
+    if (loading) return <p>Loading...</p>;
+    if(!session) {
+        return(
+            <div></div>
+        )
+    }
 
     if (session) {
         return (
-            <div className="bg-gray-200 min-h-screen font-mono mt-16 ">
+
+            <div className="bg-gray-200 min-h-screen font-mono">
                 <Navbardashboard />
                 <div className="container mx-auto">
                     <div className="inputs w-full max-w-2xl p-6 mx-auto">

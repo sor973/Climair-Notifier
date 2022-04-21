@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react";
-import Navbar from "../components/Navbar";
 
 export default function register() {
   const [email, setEmail] = useState("");
@@ -43,7 +42,7 @@ export default function register() {
 
   return (
     <div>
-      <Navbar/>
+      
       <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
         <section className="flex w-[30rem] flex-col space-y-10">
           <div className="text-center text-4xl font-medium">Reset password</div>
