@@ -3,26 +3,29 @@ import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import Navbardashboard from "../components/Navbardashboard";
 import { getSession } from "next-auth/react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function account() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  const [user,setUser] = useState('')
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [bio, setBio] = useState("");
 
-  // const commitdata = async () => {
   async function commitdata() {
+ 
     const info = {
       user: session.user.email,
       email: email,
       firstname: firstname,
       lastname: lastname,
-      bio: bio,
+      bio: bio
     };
 
+    console.log(info)
     if (!email || !email.includes("@")) return alert("Invalid email");
 
     const res = await fetch("/api/getUser", {
@@ -35,40 +38,38 @@ export default function account() {
 
     const data = await res.json();
 
-    if (data.message) return alert(data.message);
-
+    if (data.message) {
+      console.log(data.message)
+      return alert(data.message);
+    }
     alert("Account has been update. Please sign out.");
-    await signOut();
-
-    router.replace("/signin");
+    await signOut({callbackUrl: "/signin"});
     setEmail("");
     setFirstname("");
     setLastname("");
     setBio("");
   }
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getSession().then((session) => {
-      if (!session) {
-        router.replace("/signin");
-      } else setLoading(false);
-    });
-  }, []);
-  if (loading) return <p>Loading...</p>;
-  if (!session) {
-    return <div></div>;
-  }
+  // useEffect((session) => {
+  //   if (!session) {
+  //     router.replace("/signin");
+  //   } else setLoading(false);
+  // }, []);
+  // if (loading) return <p>Loading...</p>;
+  // if (!session) {
+  //   return <div></div>;
+  // }
 
   if (session) {
     return (
-      <div className="bg-gray-200 min-h-screen font-mono">
+      <div className="bg-gray-200 min-h-screen ">
         <Navbardashboard />
         <div className="container mx-auto">
           <div className="inputs w-full max-w-2xl p-6 mx-auto">
             <h2 className="text-2xl text-gray-900">Account Setting</h2>
-            <form className="mt-6 border-t border-gray-400 pt-4">
+           
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-full px-3 mb-6">
                   <label
@@ -134,30 +135,46 @@ export default function account() {
                       Bio
                     </label>
                     <textarea
-                      className="bg-gray-100 rounded-md border leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium focus:outline-none focus:bg-white"
+                      className="appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500"
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}
                       placeholder={session.user.bio}
                       required
-                    ></textarea>
+                    />
                   </div>
+  
                   <div className="flex justify-end">
                     <button
                       className="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3"
                       onClick={() => commitdata()}
-                      type="submit"
                     >
                       save changes
                     </button>
                   </div>
                 </div>
               </div>
-            </form>
+         
           </div>
         </div>
       </div>
     );
   } else {
-    return <div></div>;
+    return (
+      <div className='bg-gray-200 min-h-screen py-8'>
+        <div className='flex items-center justify-center px-3 max-w-lg mx-auto bg-white rounded-lg shadow-xl'>
+          <div>
+            <p className="text-center py-7"><span className="font-bold text-5xl">PLEASE-LOGIN</span></p>
+            <hr />
+            <div className="px-3 py-7">
+              <div className="text-center py-4">
+                <a href="/signin" className="no-underline bg-white hover:bg-gray-100 py-3 text-gray-800 font-semibold px-3 border border-gray-400 rounded shadow">
+                  LOGIN
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div >
+    )
   }
 }
