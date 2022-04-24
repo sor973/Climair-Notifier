@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import Navbardashboard from "../components/Navbardashboard";
 import { getSession } from "next-auth/react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function account() {
   const { data: session, status } = useSession();
@@ -63,7 +64,7 @@ export default function account() {
 
   if (session) {
     return (
-      <div className="bg-gray-200 min-h-screen font-mono">
+      <div className="bg-gray-200 min-h-screen ">
         <Navbardashboard />
         <div className="container mx-auto">
           <div className="inputs w-full max-w-2xl p-6 mx-auto">

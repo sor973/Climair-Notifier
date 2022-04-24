@@ -44,7 +44,7 @@ export default function register() {
   return (
     <div className="bg-gray-900">
       <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
-        <section className="flex w-[30rem] flex-col space-y-10">
+        <section className="flex w-[30rem] flex-col space-y-10 px-5">
           <div className="text-center text-4xl font-medium">Reset password</div>
 
           <div className="w-full transform border-b-2 bg-transparent text-lg duration-300 focus-within:border-indigo-500">

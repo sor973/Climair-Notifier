@@ -26,7 +26,7 @@ export default function connect() {
     return (
         <div className='bg-gray-200 min-h-screen'>
             <Navbardashboard />
-            <div className='flex items-center justify-center px-3 max-w-lg mx-auto bg-white rounded-lg shadow-xl font-mono'>
+            <div className='flex items-center justify-center px-3 max-w-lg mx-auto bg-white rounded-lg shadow-xl'>
                 <div>
                     <div className="text-center" >
                         <span className="border-4 border-white rounded-full mx-auto inline-block">
