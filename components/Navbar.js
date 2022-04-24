@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import React from "react";
 
 export default function Navbar({ fixed }) {
@@ -23,7 +25,7 @@ export default function Navbar({ fixed }) {
                                 type="button"
                                 onClick={() => setNavbarOpen(!navbarOpen)}
                             >
-                                <i className="fas fa-bars"></i>
+                                <FontAwesomeIcon icon={faBars} />
                             </button>
                         </div>
                         <div
