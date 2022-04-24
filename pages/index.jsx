@@ -60,16 +60,25 @@ export default function Home() {
     <div>
       <Navbardashboard />
       <div className="relative mld:pt-5 pb-20 pb-5 ">
-        <div cassName="px-4 md:px-10 mx-auto w-full space-y-5">
-          <div className="flex justify-between px-4">
+        <div className="px-4 md:px-10 mx-auto w-full space-y-5">
+          <div className="flex flex-col lg:flex-row justify-between px-4">
             <h1 className="text-black text-3xl font-semibold ">
               {today.day}, {today.date}
             </h1>
-            <Dropdownf setLo={setLo} />
+            <div className="">
+              <Dropdownf setLo={setLo} />
+            </div>
           </div>
-          <HeaderStats today={today} aqi={aqi} />
+          <div className="text-center">
+            <h1 className="text-cyan-500 text-3xl lg:text-5xl">location</h1>
+            <h1 className="text-5xl lg:text-7xl">{lo.locate}</h1>
+          </div>
+          <div>
+            <HeaderStats today={today} aqi={aqi} />
+          </div>
         </div>
       </div>
+      
       <div className="flex flex-wrap px-4 md:px-10 mx-auto w-full ">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-1 px-3">
           <CardLineChart
@@ -84,10 +93,7 @@ export default function Home() {
           <CardBarChart weather={fore2} />
         </div>
       </div>
-      <div className="text-center">
-        <h1 className=" text-cyan-500 text-5xl">location</h1>
-        <h1 className="text-7xl">{lo.locate}</h1>
-      </div>
+      
     </div>
   );
 }
