@@ -19,7 +19,21 @@ export default function connect() {
     if (loading) return <p>Loading...</p>;
     if (!session) {
         return (
-            <div></div>
+            <div className='bg-gray-200 min-h-screen py-8'>
+            <div className='flex items-center justify-center px-3 max-w-lg mx-auto bg-white rounded-lg shadow-xl'>
+              <div>
+                <p className="text-center py-7"><span className="font-bold text-5xl">PLEASE-LOGIN</span></p>
+                <hr />
+                <div className="px-3 py-7">
+                  <div className="text-center py-4">
+                    <a href="/signin" className="no-underline bg-white hover:bg-gray-100 py-3 text-gray-800 font-semibold px-3 border border-gray-400 rounded shadow">
+                      LOGIN
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div >
         )
     }
 
