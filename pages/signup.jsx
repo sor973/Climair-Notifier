@@ -42,9 +42,9 @@ export default function register() {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="bg-gray-900">
       <Navbar />
-      <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
+      <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white pb-20">
         <section className="flex w-[30rem] flex-col space-y-10">
           <div className="text-center text-4xl font-medium">
             Create an account
@@ -55,7 +55,7 @@ export default function register() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email or username"
+              placeholder="Email"
               className="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
             />
           </div>

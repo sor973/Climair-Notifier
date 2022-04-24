@@ -33,8 +33,12 @@ async function handler(req, res) {
     //Hash password
     const status = await db.collection("userdatabase").insertOne({
       email,
+      token: await hash(email, 12),
       password: await hash(password, 12),
       token: await hash(email, 12),
+      firstname: 'Firstname',
+      lastname: 'Lastname',
+      bio:'Bio'
     });
     //Send success response
     res.status(201).json({ message: "", ...status });
