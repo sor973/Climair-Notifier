@@ -45,7 +45,7 @@ export default function register() {
     <div className="bg-gray-900">
       <Navbar />
       <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white pb-20">
-        <section className="flex w-[30rem] flex-col space-y-10">
+        <section className="flex w-[30rem] flex-col space-y-10 px-5">
           <div className="text-center text-4xl font-medium">
             Create an account
           </div>
