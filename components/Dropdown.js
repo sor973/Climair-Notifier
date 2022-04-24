@@ -1,12 +1,13 @@
 import { Button,Dropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Location from "./Location";
+import uuid from "react-uuid"
 
 export default function Dropdownf({setLo}) {
     const map1 = Location.map(x => 
-        <Dropdown.Item         
-
-        onClick={()=> setLo(x)}>{x.locate}</Dropdown.Item>
+        <div key={uuid()}>
+            <Dropdown.Item onClick={()=> setLo(x)}>{x.locate}</Dropdown.Item>
+        </div>
         )
   
     return (
@@ -19,7 +20,7 @@ export default function Dropdownf({setLo}) {
 
                 <Dropdown.Menu
                         style = {{ 
-                            "max-height": "700px",
+                            "maxHeight": "700px",
                             "overflowY": "auto",
                         }}>
                     {map1}

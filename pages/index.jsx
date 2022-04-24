@@ -60,7 +60,7 @@ export default function Home() {
     <div>
       <Navbardashboard />
       <div className="relative mld:pt-5 pb-20 pb-5 ">
-        <div cassName="px-4 md:px-10 mx-auto w-full space-y-5">
+        <div className="px-4 md:px-10 mx-auto w-full space-y-5">
           <div className="flex justify-between px-4">
             <h1 className="text-black text-3xl font-semibold ">
               {today.day}, {today.date}

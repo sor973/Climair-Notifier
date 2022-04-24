@@ -40,7 +40,7 @@ export default function Navbardashboard({ fixed }) {
                             <Dropdown.Menu>
                                 <Dropdown.Item href="/account">Account</Dropdown.Item>
                                 <Dropdown.Item href="/connect">Connect</Dropdown.Item>
-                                <Dropdown.Item ><Link href="/api/auth/signout"><a className='no-underline' onClick={(e) => {e.preventDefault(); signOut({callbackUrl: "/signin"});}}> Sign out</a></Link></Dropdown.Item>
+                                <Link href="/api/auth/signout" ><a className='no-underline text-lg hover:bg-gray-100 text-gray-700 block px-3 py-0' onClick={(e) => {e.preventDefault(); signOut({callbackUrl: "/signin"});}}> Sign out</a></Link>
                             </Dropdown.Menu>
                         </Dropdown>
                     </div>
