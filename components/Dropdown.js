@@ -9,7 +9,6 @@ export default function Dropdownf({setLo}) {
             <Dropdown.Item onClick={()=> setLo(x)}>{x.locate}</Dropdown.Item>
         </div>
         )
-  
     return (
         <div>
             <Dropdown        
@@ -20,7 +19,7 @@ export default function Dropdownf({setLo}) {
 
                 <Dropdown.Menu
                         style = {{ 
-                            "maxHeight": "700px",
+                            "maxHeight": "460px",
                             "overflowY": "auto",
                         }}>
                     {map1}
