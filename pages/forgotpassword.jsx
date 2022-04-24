@@ -32,18 +32,17 @@ export default function register() {
     setPassword("");
   }
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getSession().then((session) => {
-      if (!session) router.replace("/signin");
-      else setLoading(false);
-    });
-  }, []);
-  if (loading) return <p>Loading...</p>;
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   getSession().then((session) => {
+  //     if (!session) router.replace("/signin");
+  //     else setLoading(false);
+  //   });
+  // }, []);
+  // if (loading) return <p>Loading...</p>;
 
   return (
     <div className="bg-gray-900">
-      <Navbar />
       <main className="mx-auto flex min-h-screen w-full items-center justify-center bg-gray-900 text-white">
         <section className="flex w-[30rem] flex-col space-y-10">
           <div className="text-center text-4xl font-medium">Reset password</div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import React from "react";
 
 export default function Navbar({ fixed }) {

@@ -20,7 +20,7 @@ export default function Dropdownf({setLo}) {
                 <Dropdown.Menu
                         style = {{ 
                             "max-height": "700px",
-                            "overflow-y": "auto",
+                            "overflowY": "auto",
                         }}>
                     {map1}
                 </Dropdown.Menu>
