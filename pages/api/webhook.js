@@ -53,10 +53,7 @@ async function reply(reply_token, msg, lineId) {
     }
     const users = await getUser();
     let textReply = 'มีอะไรให้ช่วยคะ';
-    let location = {
-        locate: 'Ubonratchatani, Thailand',
-        cord: { lat: 15.23844, long: 104.84866 }
-    }
+    let location = { locate: 'Bangkok, Thailand', cord: { lat: 13.736717, long: 100.523186 } }
     for (const user of users){
         if(msg == user.token){
             try{
