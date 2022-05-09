@@ -7,15 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function connect() {
     const { data: session, status } = useSession();
-    const router = useRouter()
+    // const router = useRouter()
 
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        getSession().then((session) => {
-            if (!session) router.replace("/signin");
-            else setLoading(false);
-        });
-    }, []);
+    // const [loading, setLoading] = useState(true);
+    // useEffect(() => {
+    //     getSession().then((session) => {
+    //         if (!session) router.replace("/signin");
+    //         else setLoading(false);
+    //     });
+    // }, []);
     if (loading) return <p>Loading...</p>;
     if (!session) {
         return (
